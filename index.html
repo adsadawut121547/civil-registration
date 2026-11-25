@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>งานทะเบียนราษฎร</title>
+
+    <meta name="description" content="เว็บไซต์ให้บริการงานทะเบียนราษฎร์ บริการประชาชนอย่างสะดวก รวดเร็ว โปร่งใส">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        prompt: ['Prompt', 'sans-serif']
+                    },
+                    colors: {
+                        navy: '#102A43',
+                        primary: '#155EEF',
+                        gold: '#EAB54D',
+                        lightblue: '#EFF6FF'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+
+        .hero-bg {
+            background:
+                linear-gradient(110deg, rgba(12, 35, 64, 0.96), rgba(21, 94, 239, 0.84)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(16, 42, 67, 0.12);
+            border-color: #93C5FD;
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.12);
+            background-color: #155EEF;
+            color: white;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            background: #EAB54D;
+            border-radius: 10px;
+        }
+
+        .announcement-item {
+            transition: all 0.2s ease;
+        }
+
+        .announcement-item:hover {
+            background: #EFF6FF;
+            padding-left: 20px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-700">
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="flex items-center justify-between h-20">
+
+            <!-- LOGO -->
+            <a href="#home" class="flex items-center gap-3">
+
+                <div class="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-white text-2xl">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+
+                <div>
+                    <h1 class="font-semibold text-navy text-base md:text-lg leading-tight">
+                        งานทะเบียนราษฎร
+                    </h1>
+
+                    <p class="text-xs text-gray-500">
+                        
+                    </p>
+                </div>
+
+            </a>
+
+            <!-- DESKTOP MENU -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+
+                <a href="#home" class="text-primary hover:text-blue-700">
+                    หน้าหลัก
+                </a>
+
+                <a href="#services" class="hover:text-primary transition">
+                    บริการของเรา
+                </a>
+
+                <a href="#documents" class="hover:text-primary transition">
+                    คู่มือ/เอกสาร
+                </a>
+
+                <a href="#announcements" class="hover:text-primary transition">
+                    ข่าวประชาสัมพันธ์
+                </a>
+
+                <a href="#contact" class="hover:text-primary transition">
+                    ติดต่อเรา
+                </a>
+
+            </nav>
+
+            <!-- MOBILE BUTTON -->
+            <button onclick="toggleMenu()"
+                    class="lg:hidden text-navy text-2xl"
+                    aria-label="เปิดเมนู">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden border-t py-4">
+
+            <nav class="flex flex-col gap-4 text-sm font-medium">
+
+                <a href="#home" onclick="toggleMenu()">หน้าหลัก</a>
+
+                <a href="#services" onclick="toggleMenu()">บริการของเรา</a>
+
+                <a href="#documents" onclick="toggleMenu()">คู่มือ/เอกสาร</a>
+
+                <a href="#announcements" onclick="toggleMenu()">ข่าวประชาสัมพันธ์</a>
+
+                <a href="#contact" onclick="toggleMenu()">ติดต่อเรา</a>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section id="home" class="hero-bg relative text-white overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-5 py-24 md:py-36">
+
+        <div class="max-w-3xl">
+
+            <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 px-4 py-2 rounded-full text-sm mb-7">
+
+                <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+
+                ยินดีต้อนรับสู่บริการภาครัฐยุคดิจิทัล
+
+            </div>
+
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-7">
+
+                ประชาสัมพันธ์ตรวจสอบแก้ไข
+
+                <span class="text-yellow-300">
+                    สะดวก รวดเร็ว โปร่งใส
+                </span>
+
+            </h2>
+
+            <p class="text-blue-100 text-base md:text-lg leading-relaxed max-w-2xl mb-10">
+
+                มุ่งมั่นให้บริการประชาชนด้วยความสะดวก รวดเร็ว
+                ถูกต้อง และเป็นธรรม พร้อมพัฒนาการให้บริการ
+                ด้านทะเบียนราษฎร์
+                สู่ระบบดิจิทัลอย่างมีประสิทธิภาพ
+
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+
+                <a href="#documents"
+                   class="bg-yellow-400 hover:bg-yellow-500 text-navy font-semibold px-8 py-4 rounded-xl text-center transition shadow-lg">
+
+                    <i class="fa-solid fa-file-circle-check mr-2"></i>
+                    ตรวจสอบรายการเอกสาร
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DECORATION -->
+    <div class="absolute -right-20 -bottom-40 w-96 h-96 border border-white/10 rounded-full"></div>
+
+    <div class="absolute -right-10 -bottom-32 w-72 h-72 border border-white/10 rounded-full"></div>
+
+</section>
+
+
+<!-- ================= QUICK INFO ================= -->
+
+<section class="relative -mt-10 z-10 max-w-7xl mx-auto px-5">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-5">
+
+            <div class="w-14 h-14 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-2xl">
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-gray-500 text-sm">เวลาทำการ</p>
+
+                <h3 class="font-semibold text-navy">
+                    08.30 - 16.30 น.
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-5">
+
+            <div class="w-14 h-14 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-gray-500 text-sm">วันให้บริการ</p>
+
+                <h3 class="font-semibold text-navy">
+                    จันทร์ - ศุกร์
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-5">
+
+            <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-2xl">
+
+                <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <div>
+
+                <p class="text-gray-500 text-sm">สอบถามข้อมูล</p>
+
+                <h3 class="font-semibold text-navy">
+                    ติดต่อเจ้าหน้าที่
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="py-24 bg-gray-50">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <!-- TITLE -->
+        <div class="text-center mb-14">
+
+            <p class="text-primary font-semibold text-sm mb-3">
+                OUR SERVICES
+            </p>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-5">
+                บริการของเรา
+            </h2>
+
+            <div class="gold-line mx-auto mb-5"></div>
+
+            <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+
+                เลือกใช้บริการงานทะเบียนราษฎร์
+                ได้อย่างสะดวก พร้อมข้อมูลเบื้องต้นสำหรับประชาชน
+
+            </p>
+
+        </div>
+
+
+        <!-- SERVICE CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+
+            <!-- CARD 1 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-signature"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    ขอบ้านเลขที่ใหม่
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    ให้บริการรับคำร้องกำหนดเลขที่บ้าน
+                    ต่ออายุบัตร และกรณีบัตรสูญหายหรือชำรุด
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- CARD 2 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-baby"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    การแจ้งเกิด / แจ้งตาย
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    ให้บริการรับแจ้งการเกิดและการตาย
+                    พร้อมดำเนินการจัดทำเอกสารตามระเบียบ
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- CARD 3 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-house-user"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    การย้ายที่อยู่
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    บริการแจ้งย้ายเข้า แจ้งย้ายออก
+                    และดำเนินการเกี่ยวกับทะเบียนบ้าน
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- CARD 4 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-ring"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    การจดทะเบียนสมรส / หย่า
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    ให้บริการจดทะเบียนสมรสและจดทะเบียนหย่า
+                    ตามหลักเกณฑ์และกฎหมายที่เกี่ยวข้อง
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- CARD 5 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-file-signature"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    การเปลี่ยนชื่อตัว / ชื่อสกุล
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    ให้บริการเปลี่ยนชื่อตัว เปลี่ยนชื่อสกุล
+                    และดำเนินการแก้ไขรายการทะเบียน
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- CARD 6 -->
+            <a href="#documents"
+               class="service-card bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+
+                <div class="service-icon w-16 h-16 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center text-3xl mb-6">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                </div>
+
+                <h3 class="text-xl font-semibold text-navy mb-3">
+                    การคัดรับรองสำเนาทะเบียนบ้าน
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+
+                    ให้บริการคัดและรับรองสำเนารายการ
+                    ทะเบียนบ้านและเอกสารทางทะเบียน
+
+                </p>
+
+                <span class="text-primary font-medium text-sm">
+
+                    ดูรายละเอียดเพิ่มเติม
+
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCUMENTS ================= -->
+
+<section id="documents" class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="grid md:grid-cols-2 gap-14 items-center">
+
+            <div>
+
+                <p class="text-primary font-semibold text-sm mb-3">
+                    DOCUMENT CENTER
+                </p>
+
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-5">
+
+                    เตรียมเอกสารให้พร้อม
+                    ก่อนเข้ารับบริการ
+
+                </h2>
+
+                <div class="gold-line mb-7"></div>
+
+                <p class="text-gray-500 leading-relaxed mb-8">
+
+                    เพื่อความสะดวกรวดเร็วในการติดต่อราชการ
+                    ขอแนะนำให้ประชาชนศึกษารายการเอกสารที่ต้องใช้
+                    และเตรียมหลักฐานให้ครบถ้วนก่อนเข้ารับบริการ
+
+                </p>
+
+                <div class="space-y-5">
+
+                    <div class="flex gap-4">
+
+                        <div class="text-green-500 text-xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-navy">
+                                ตรวจสอบเอกสารล่วงหน้า
+                            </h4>
+
+                            <p class="text-gray-500 text-sm">
+                                ตรวจสอบหลักฐานที่ต้องใช้สำหรับแต่ละบริการ
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex gap-4">
+
+                        <div class="text-green-500 text-xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-navy">
+                                เตรียมเอกสารฉบับจริง
+                            </h4>
+
+                            <p class="text-gray-500 text-sm">
+                                นำเอกสารหลักฐานที่เกี่ยวข้องมาให้ครบถ้วน
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex gap-4">
+
+                        <div class="text-green-500 text-xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-navy">
+                                ติดต่อสอบถามเจ้าหน้าที่
+                            </h4>
+
+                            <p class="text-gray-500 text-sm">
+                                สอบถามข้อมูลเพิ่มเติมก่อนเข้ารับบริการ
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENT BOX -->
+            <div class="bg-blue-50 rounded-3xl p-8 md:p-10">
+
+                <div class="bg-white rounded-2xl p-7 shadow-sm">
+
+                    <div class="flex items-center gap-4 mb-7">
+
+                        <div class="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center text-2xl">
+
+                            <i class="fa-solid fa-folder-open"></i>
+
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-navy text-lg">
+                                ศูนย์รวมคู่มือบริการ
+                            </h3>
+
+                            <p class="text-gray-500 text-sm">
+                                ข้อมูลและเอกสารประกอบการติดต่อ
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="space-y-3">
+
+                        <div class="flex justify-between items-center border-b pb-4">
+
+                            <span class="text-sm text-gray-600">
+                                คู่มือการทำบัตรประชาชน
+                            </span>
+
+                            <i class="fa-solid fa-file-pdf text-red-500"></i>
+
+                        </div>
+
+
+                        <div class="flex justify-between items-center border-b pb-4">
+
+                            <span class="text-sm text-gray-600">
+                                คู่มือการแจ้งเกิด / แจ้งตาย
+                            </span>
+
+                            <i class="fa-solid fa-file-pdf text-red-500"></i>
+
+                        </div>
+
+
+                        <div class="flex justify-between items-center border-b pb-4">
+
+                            <span class="text-sm text-gray-600">
+                                คู่มือการย้ายทะเบียนบ้าน
+                            </span>
+
+                            <i class="fa-solid fa-file-pdf text-red-500"></i>
+
+                        </div>
+
+
+                        <div class="flex justify-between items-center">
+
+                            <span class="text-sm text-gray-600">
+                                คู่มือการเปลี่ยนชื่อ
+                            </span>
+
+                            <i class="fa-solid fa-file-pdf text-red-500"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="#contact"
+                       class="block mt-8 bg-primary hover:bg-blue-700 text-white text-center py-4 rounded-xl font-medium transition">
+
+                        สอบถามเอกสารเพิ่มเติม
+
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ANNOUNCEMENTS ================= -->
+
+<section id="announcements" class="py-24 bg-gray-50">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="text-center mb-14">
+
+            <p class="text-primary font-semibold text-sm mb-3">
+                NEWS & ANNOUNCEMENTS
+            </p>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-5">
+                ข่าวสารและประกาศ
+            </h2>
+
+            <div class="gold-line mx-auto"></div>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- WORKING HOURS -->
+            <div class="bg-navy rounded-2xl p-8 md:p-10 text-white">
+
+                <div class="flex items-center gap-4 mb-8">
+
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center text-2xl text-yellow-300">
+
+                        <i class="fa-solid fa-business-time"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-xl font-semibold">
+                            วันและเวลาทำการ
+                        </h3>
+
+                        <p class="text-blue-200 text-sm">
+                            OFFICE HOURS
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="space-y-5">
+
+                    <div class="flex justify-between border-b border-white/20 pb-4">
+
+                        <span class="text-blue-100">
+                            วันจันทร์ - วันศุกร์
+                        </span>
+
+                        <span class="font-semibold text-yellow-300">
+                            08.30 - 16.30 น.
+                        </span>
+
+                    </div>
+
+
+                    <div class="flex justify-between border-b border-white/20 pb-4">
+
+                        <span class="text-blue-100">
+                            วันเสาร์ - วันอาทิตย์
+                        </span>
+
+                        <span class="text-red-300 font-medium">
+                            ปิดทำการ
+                        </span>
+
+                    </div>
+
+
+                    <div class="flex justify-between">
+
+                        <span class="text-blue-100">
+                            วันหยุดนักขัตฤกษ์
+                        </span>
+
+                        <span class="text-red-300 font-medium">
+                            ปิดทำการ
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-9 bg-white/10 rounded-xl p-4 text-sm text-blue-100">
+
+                    <i class="fa-solid fa-circle-info text-yellow-300 mr-2"></i>
+
+                    กรุณาตรวจสอบประกาศวันหยุดราชการก่อนเข้ารับบริการ
+
+                </div>
+
+            </div>
+
+
+            <!-- ANNOUNCEMENT LIST -->
+            <div class="bg-white rounded-2xl shadow-sm p-8">
+
+                <h3 class="text-xl font-semibold text-navy mb-7">
+
+                    <i class="fa-solid fa-bullhorn text-yellow-500 mr-2"></i>
+
+                    ประกาศประชาสัมพันธ์
+
+                </h3>
+
+
+                <div class="space-y-6">
+
+                    <div class="announcement-item border-b pb-5">
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">
+                                ประกาศสำคัญ
+                            </span>
+
+                            <span class="text-xs text-gray-400">
+                                ประชาสัมพันธ์
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-medium text-navy mb-2">
+                            แจ้งประชาชนตรวจสอบเอกสารก่อนเข้ารับบริการ
+                        </h4>
+
+                        <p class="text-sm text-gray-500">
+                            เพื่อความสะดวกรวดเร็ว กรุณาเตรียมเอกสารให้ครบถ้วน
+                            ก่อนมาติดต่อราชการ
+                        </p>
+
+                    </div>
+
+
+                    <div class="announcement-item border-b pb-5">
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
+                                ข่าวประชาสัมพันธ์
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-medium text-navy mb-2">
+                            ขอความร่วมมือประชาชนตรวจสอบข้อมูลทะเบียนบ้าน
+                        </h4>
+
+                        <p class="text-sm text-gray-500">
+                            ประชาชนสามารถติดต่อเจ้าหน้าที่เพื่อตรวจสอบ
+                            รายการข้อมูลทะเบียนราษฎร์
+                        </p>
+
+                    </div>
+
+
+                    <div class="announcement-item">
+
+                        <div class="flex items-center gap-2 mb-2">
+
+                            <span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">
+                                แจ้งเตือน
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-medium text-navy mb-2">
+                            โปรดตรวจสอบวันและเวลาทำการก่อนเดินทาง
+                        </h4>
+
+                        <p class="text-sm text-gray-500">
+                            สามารถสอบถามรายละเอียดเพิ่มเติมได้ที่สำนักงาน
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="text-center mb-14">
+
+            <p class="text-primary font-semibold text-sm mb-3">
+                CONTACT US
+            </p>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-5">
+                ติดต่อเรา
+            </h2>
+
+            <div class="gold-line mx-auto"></div>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <!-- CONTACT INFO -->
+            <div class="space-y-7">
+
+                <div class="flex gap-5">
+
+                    <div class="w-14 h-14 shrink-0 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-2xl">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-semibold text-navy mb-2">
+                            ที่อยู่สำนักงาน
+                        </h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">
+
+                            งานทะเบียนราษฎร์
+                            สำนักงาน........................................
+                            จังหวัด........................................
+                            รหัสไปรษณีย์....................
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex gap-5">
+
+                    <div class="w-14 h-14 shrink-0 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-2xl">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-semibold text-navy mb-2">
+                            เบอร์โทรศัพท์
+                        </h3>
+
+                        <p class="text-gray-500 text-sm">
+                            0XX-XXX-XXXX
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex gap-5">
+
+                    <div class="w-14 h-14 shrink-0 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-semibold text-navy mb-2">
+                            อีเมล
+                        </h3>
+
+                        <p class="text-gray-500 text-sm">
+                            example@email.go.th
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex gap-5">
+
+                    <div class="w-14 h-14 shrink-0 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-semibold text-navy mb-2">
+                            Facebook
+                        </h3>
+
+                        <p class="text-gray-500 text-sm">
+                            งานทะเบียนราษฎร์
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAP PLACEHOLDER -->
+            <div class="rounded-2xl overflow-hidden bg-blue-50 min-h-80 flex items-center justify-center relative">
+
+                <div class="text-center p-8">
+
+                    <div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mx-auto mb-5 text-primary text-4xl">
+
+                        <i class="fa-solid fa-map-location-dot"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-navy mb-3">
+                        แผนที่สำนักงาน
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mb-6">
+                        สามารถดูตำแหน่งที่ตั้งสำนักงานได้ที่นี่
+                    </p>
+
+                    <a href="https://www.google.com/maps"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-block bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-sm transition">
+
+                        <i class="fa-solid fa-map mr-2"></i>
+
+                        เปิด Google Maps
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RELATED LINKS ================= -->
+
+<section class="bg-blue-50 py-14">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <h3 class="text-xl font-semibold text-navy text-center mb-8">
+
+            หน่วยงานที่เกี่ยวข้อง
+
+        </h3>
+
+        <div class="flex flex-wrap justify-center gap-4">
+
+            <a href="https://www.bora.dopa.go.th/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="bg-white hover:bg-primary hover:text-white px-6 py-4 rounded-xl shadow-sm transition text-sm">
+
+                กรมการปกครอง
+
+                <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+
+            </a>
+
+
+            <a href="https://www.dopa.go.th/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="bg-white hover:bg-primary hover:text-white px-6 py-4 rounded-xl shadow-sm transition text-sm">
+
+                กรมการปกครอง (DOPA)
+
+                <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+
+            </a>
+
+
+            <a href="https://www.dopa.go.th/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="bg-white hover:bg-primary hover:text-white px-6 py-4 rounded-xl shadow-sm transition text-sm">
+
+                ระบบงานทะเบียน
+
+                <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-navy text-white pt-14 pb-7">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+
+            <!-- BRAND -->
+            <div>
+
+                <div class="flex items-center gap-3 mb-5">
+
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl text-yellow-300">
+
+                        <i class="fa-solid fa-landmark"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-semibold text-lg">
+                            งานทะเบียนราษฎร
+                        </h3>
+
+                        <p class="text-blue-200 text-xs">
+                            
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="text-blue-200 text-sm leading-relaxed">
+
+                    มุ่งเน้นการให้บริการประชาชนอย่างมีประสิทธิภาพ
+                    โปร่งใส ตรวจสอบได้ และพัฒนาสู่หน่วยงานดิจิทัล
+
+                </p>
+
+            </div>
+
+
+            <!-- LINKS -->
+            <div>
+
+                <h3 class="font-semibold text-lg mb-5">
+                    เมนูเว็บไซต์
+                </h3>
+
+                <div class="space-y-3 text-sm text-blue-200">
+
+                    <p><a href="#home" class="hover:text-yellow-300">หน้าหลัก</a></p>
+
+                    <p><a href="#services" class="hover:text-yellow-300">บริการของเรา</a></p>
+
+                    <p><a href="#documents" class="hover:text-yellow-300">คู่มือและเอกสาร</a></p>
+
+                    <p><a href="#announcements" class="hover:text-yellow-300">ข่าวประชาสัมพันธ์</a></p>
+
+                    <p><a href="#contact" class="hover:text-yellow-300">ติดต่อเรา</a></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+            <div>
+
+                <h3 class="font-semibold text-lg mb-5">
+                    ติดต่อสำนักงาน
+                </h3>
+
+                <div class="space-y-4 text-sm text-blue-200">
+
+                    <p>
+                        <i class="fa-solid fa-location-dot mr-2 text-yellow-300"></i>
+                        ที่อยู่สำนักงาน (กรุณาระบุที่อยู่)
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone mr-2 text-yellow-300"></i>
+                        0XX-XXX-XXXX
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope mr-2 text-yellow-300"></i>
+                        example@email.go.th
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="pt-7 text-center">
+
+            <p class="text-blue-200 text-xs md:text-sm">
+
+                © 2026 งานทะเบียนราษฎร์
+
+            </p>
+
+            <p class="text-blue-300/60 text-xs mt-2">
+
+                เว็บไซต์เพื่อการประชาสัมพันธ์และอำนวยความสะดวกแก่ประชาชน
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Mobile Menu
+    function toggleMenu() {
+
+        const menu = document.getElementById('mobileMenu');
+
+        menu.classList.toggle('active');
+
+    }
+
+</script>
+
+</body>
+</html>
